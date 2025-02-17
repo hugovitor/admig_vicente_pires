@@ -34,7 +34,7 @@ export default async function Footer() {
             className={buttonVariants({ variant: "outline" })}
           >
             <MailIcon className="w-4 inline-block mr-2" />
-            Email us
+            Envie-nos um e-mail
           </a>
         </div>
         <div>
@@ -43,7 +43,7 @@ export default async function Footer() {
             className={buttonVariants({ variant: "outline" })}
           >
             <PhoneIcon className="w-4 inline-block mr-2" />
-            Call us
+            Ligue para nós
           </a>
         </div>
       </div>

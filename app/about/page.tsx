@@ -26,7 +26,7 @@ export default async function AboutPage() {
       <div className="mt-4 md:mt-8 w-full bg-zinc-50 dark:bg-zinc-900 px-4">
         <section className="py-8 w-full md:max-w-7xl mx-auto">
           <h2 className="w-full mb-4 text-2xl md:text-4xl font-display text-zinc-900 dark:text-zinc-100 tracking-tighter justify-center flex">
-            Our team
+            Nossos Pastores
           </h2>
           <TeamList
             query={{ type: "team-members" }}

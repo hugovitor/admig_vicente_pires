@@ -64,7 +64,8 @@ export default async function SingleProjectsPage({
           />
           <div className="my-10">
             <Link href="/work" className="flex text-sky-500 dark:text-sky-400">
-              <ArrowLeftIcon className="w-4 h-4 mr-2 mt-1" /> Back to projects
+              <ArrowLeftIcon className="w-4 h-4 mr-2 mt-1" /> Voltar aos
+              ministérios
             </Link>
           </div>
         </div>

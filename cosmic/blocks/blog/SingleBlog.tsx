@@ -34,7 +34,7 @@ export async function SingleBlog({
                 href="/blog"
                 className="flex text-sky-500 dark:text-sky-400"
               >
-                <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
+                <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Voltar ao blog
               </Link>
             </div>
             <h1 className="mb-4 text-3xl font-extrabold leading-tight tracking-tighter text-black dark:text-white md:text-4xl">
@@ -93,7 +93,7 @@ export async function SingleBlog({
                 href="/blog"
                 className="flex text-sky-500 dark:text-sky-400"
               >
-                <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
+                <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Voltar ao blog
               </Link>
             </div>
           </div>

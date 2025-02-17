@@ -17,9 +17,10 @@ export function AuthButtons() {
 
   if (!user) {
     return (
-      <button onClick={() => router.push("/login")} className={buttonStyles}>
-        Login
-      </button>
+      <div></div>
+      // <button onClick={() => router.push("/login")} className={buttonStyles}>
+      //   Login
+      // </button>
     );
   }
 

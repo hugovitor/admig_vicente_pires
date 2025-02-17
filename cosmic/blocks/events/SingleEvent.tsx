@@ -64,14 +64,16 @@ export async function SingleEvent({
                 {event.title}
               </h1>
               <div className="mb-8">
-                <Button type="submit">Obter ingressos</Button>
+                <Button type="submit" variant="blue">
+                  Obter ingressos
+                </Button>
               </div>
               <h3 className="mb-2 text-lg font-medium text-gray-900 dark:text-white">
-                Date and Time
+                Data e hora
               </h3>
               <div className="flex items-center space-x-1 text-sm text-zinc-900 dark:text-gray-300">
                 <span>{getFormattedDate(event.metadata.start_date)}</span>
-                <span>from</span>
+                <span>de </span>
                 <span>{event.metadata.start_time}</span>
                 <span>until</span>
                 {event.metadata.start_date !== event.metadata.end_date && (
@@ -80,7 +82,7 @@ export async function SingleEvent({
                 <span>{event.metadata.end_time}</span>
               </div>
               <h3 className="mb-2 mt-6 text-lg font-medium text-gray-900 dark:text-white">
-                Details
+                Detalhes
               </h3>
               <div
                 dangerouslySetInnerHTML={{
@@ -90,7 +92,7 @@ export async function SingleEvent({
               />
               <div>
                 <h3 className="mb-2 text-lg font-medium text-gray-900 dark:text-white">
-                  Location
+                  Localização
                 </h3>
                 <div
                   dangerouslySetInnerHTML={{
@@ -110,7 +112,7 @@ export async function SingleEvent({
                         key={item.item}
                         className="flex flex-col space-y-1 rounded-lg bg-gray-50 px-3 py-2 dark:bg-zinc-800"
                       >
-                        <span className="text-xs text-orange-600 dark:text-orange-400">
+                        <span className="text-xs text-blue-600 dark:text-orange-400">
                           {item.time}
                         </span>
                         <span className="font-medium">{item.item}</span>
