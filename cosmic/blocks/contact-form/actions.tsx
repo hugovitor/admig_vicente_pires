@@ -3,8 +3,7 @@
 import { cosmic } from "@/cosmic/client";
 import { Resend } from "resend";
 const RESEND_KEY = process.env.RESEND_API_KEY;
-const CONTACT_EMAIL =
-  process.env.CONTACT_EMAIL || "change_to_your_email@example.com";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "hugovitormnunes@gmail.com";
 const resend = new Resend(RESEND_KEY);
 
 export type AddSubmissionType = {
