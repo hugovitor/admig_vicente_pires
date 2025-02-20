@@ -19,16 +19,16 @@ export type AddSubmissionType = {
 export async function addSubmission(comment: AddSubmissionType) {
   const { metadata: metadata, title } = comment;
   const data = await cosmic.objects.insertOne(comment);
-  const submitterSubject = `Form submission received`;
+  const submitterSubject = `Envio de formulário recebido`;
   const submitterHTML = `
-    Hello ${title},<br/><br/>
-    This is a message to confirm that we have received your form submission with the following information:<br/><br/>
-    Name: ${title}<br/>
+    Olá ${title},<br/><br/>
+    Esta é uma mensagem para confirmar que recebemos o envio do seu formulário com as seguintes informações:<br/><br/>
+    Nome: ${title}<br/>
     Email: ${metadata.email}<br/>
-    Company: ${metadata.company}<br/>
-    Message: ${metadata.message}<br/>
+    Telefone: ${metadata.company}<br/>
+    Mensagem: ${metadata.message}<br/>
     <br/>
-    A representative will be in touch with you soon.
+    Um representante entrará em contato com você em breve.
   `;
   // Send confirmation email
   await sendEmail({
@@ -38,13 +38,13 @@ export async function addSubmission(comment: AddSubmissionType) {
     subject: submitterSubject,
     html: submitterHTML,
   });
-  const adminSubject = `${title} submitted the form`;
+  const adminSubject = `${title} enviou o formulário`;
   const adminHTML = `
-    ${title} submitted the contact form with the following information:<br/><br/>
-    Name: ${title}<br/>
+    ${title} enviou o formulário de contato com as seguintes informações:<br/><br/>
+    Nome: ${title}<br/>
     Email: ${metadata.email}<br/>
-    Company: ${metadata.company}<br/>
-    Message: ${metadata.message}<br/>
+    Telefone: ${metadata.company}<br/>
+    Mensagem: ${metadata.message}<br/>
   `;
   // Send email to admin
   await sendEmail({

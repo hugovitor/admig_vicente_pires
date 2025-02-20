@@ -30,9 +30,9 @@ export default function DashboardClient() {
         if (!isMounted) return;
 
         if (error) {
-          if (error === "Account is not active") {
+          if (error === "A conta não está ativa") {
             logout();
-            router.push("/login?error=Your account is no longer active");
+            router.push("/login?error=Sua conta não está mais ativa");
             return;
           }
           setError(error);
@@ -41,7 +41,7 @@ export default function DashboardClient() {
         }
       } catch (err) {
         if (!isMounted) return;
-        setError("Failed to fetch user data");
+        setError("Falha ao buscar dados do usuário");
       }
     };
 
@@ -64,14 +64,14 @@ export default function DashboardClient() {
     return null;
   }
 
-  if (error === "Account is not active") {
+  if (error === "A conta não está ativa") {
     return null; // Don't show anything while redirecting
   }
 
   if (error) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center p-4">
-        <div className="text-red-500">Error: {error}</div>
+        <div className="text-red-500">Erro: {error}</div>
       </div>
     );
   }

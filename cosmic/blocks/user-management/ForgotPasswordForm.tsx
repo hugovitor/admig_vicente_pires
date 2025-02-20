@@ -31,7 +31,7 @@ export default function ForgotPasswordForm({
 
       setSuccess(true);
     } catch (err: any) {
-      console.error(err.message || "An error occurred");
+      console.error(err.message || "Ocorreu um erro");
     } finally {
       setIsLoading(false);
     }
@@ -40,13 +40,13 @@ export default function ForgotPasswordForm({
   if (success) {
     return (
       <div className="mx-auto mt-8 max-w-md p-4 text-center">
-        <h2 className="mb-4 text-xl font-bold">Check Your Email</h2>
+        <h2 className="mb-4 text-xl font-bold">Verifique seu e-mail</h2>
         <p className="mb-4">
-          If an account exists with that email address, we&apos;ve sent
-          instructions to reset your password.
+          Se existir uma conta com esse endereço de e-mail, nós&apos;eu enviei
+          instruções para redefinir sua senha.
         </p>
         <Link href="/login" className="text-orange-600">
-          Return to login
+          Voltar ao login
         </Link>
       </div>
     );
@@ -54,10 +54,10 @@ export default function ForgotPasswordForm({
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto mt-8 max-w-md space-y-6">
-      <h1 className="text-center text-2xl font-bold">Reset Password</h1>
+      <h1 className="text-center text-2xl font-bold">Redefinir senha</h1>
       <p className="text-center text-gray-600">
-        Enter your email address and we&apos;ll send you instructions to reset
-        your password.
+        Insira seu endereço de e-mail e nós&apos; Enviaremos instruções para
+        redefinir sua senha.
       </p>
 
       <div>
@@ -67,7 +67,7 @@ export default function ForgotPasswordForm({
           id="email"
           name="email"
           required
-          placeholder="Enter your email address"
+          placeholder="Digite seu endereço de e-mail"
           autoFocus
         />
       </div>
@@ -76,13 +76,13 @@ export default function ForgotPasswordForm({
         {isLoading ? (
           <Loader2 className="size-5 animate-spin" />
         ) : (
-          "Send Reset Instructions"
+          "Enviar instruções de redefinição"
         )}
       </Button>
 
       <div className="text-center text-sm">
         <Link href="/login" className="text-orange-600">
-          Back to login
+          Voltar ao login
         </Link>
       </div>
     </form>

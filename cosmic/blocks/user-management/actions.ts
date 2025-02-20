@@ -26,7 +26,7 @@ export async function signUp(formData: FormData) {
       return {
         success: false,
         error:
-          "Password must be at least 8 characters long and contain both letters and numbers",
+          "A senha deve ter pelo menos 8 caracteres e conter letras e números",
       };
     }
 
@@ -47,7 +47,7 @@ export async function signUp(formData: FormData) {
     if (existingUser) {
       return {
         success: false,
-        error: "An account with this email already exists",
+        error: "Já existe uma conta com este e-mail",
       };
     }
 
@@ -81,29 +81,29 @@ export async function signUp(formData: FormData) {
       await resend.emails.send({
         from: `${process.env.NEXT_PUBLIC_APP_NAME} Support <${process.env.SUPPORT_EMAIL}>`,
         to: email,
-        subject: "Verify your email address",
+        subject: "Verifique seu endereço de e-mail",
         html: `
-          <h1>Welcome to ${process.env.NEXT_PUBLIC_APP_NAME}!</h1>
-          <p>Please click the link below to verify your email address:</p>
-          <a href="${verificationUrl}">Verify Email</a>
-          <p>This link will expire in 24 hours.</p>
+          <h1>Bem-vindo ao ${process.env.NEXT_PUBLIC_APP_NAME}!</h1>
+          <p>Clique no link abaixo para verificar seu endereço de e-mail:</p>
+          <a href="${verificationUrl}">Verificar e-mail</a>
+          <p>Este link irá expirar em 24 horas.</p>
         `,
       });
-      console.log(`Verification email sent to ${email}`);
+      console.log(`E-mail de verificação enviado para ${email}`);
     } catch (error) {
-      console.error("Error sending verification email:", error);
+      console.error("Erro ao enviar e-mail de verificação:", error);
       return {
         success: false,
-        error: "Failed to send verification email. Please try again.",
+        error: "Falha ao enviar e-mail de verificação. Tente novamente.",
       };
     }
 
     return { success: true };
   } catch (error) {
-    console.error("Signup error:", error);
+    console.error("Erro de inscrição:", error);
     return {
       success: false,
-      error: "Failed to create account. Please try again.",
+      error: "Falha ao criar conta. Tente novamente.",
     };
   }
 }
@@ -124,7 +124,7 @@ export async function login(formData: FormData) {
       .depth(0);
 
     if (!result.object) {
-      return { error: "Invalid email or password" };
+      return { error: "E-mail ou senha inválidos" };
     }
 
     const isValid = await bcrypt.compare(
@@ -133,7 +133,7 @@ export async function login(formData: FormData) {
     );
 
     if (!isValid) {
-      return { error: "Invalid email or password" };
+      return { error: "E-mail ou senha inválidos" };
     }
 
     const user = {
@@ -153,8 +153,8 @@ export async function login(formData: FormData) {
 
     return { user };
   } catch (error) {
-    console.error("Login error:", error);
-    return { error: "Invalid email or password" };
+    console.error("Erro de login:", error);
+    return { error: "E-mail ou senha inválidos" };
   }
 }
 
@@ -169,18 +169,18 @@ export async function getUserData(userId: string) {
       .depth(0);
 
     if (!object) {
-      return { data: null, error: "User not found" };
+      return { data: null, error: "Usuário não encontrado" };
     }
 
     // Check active status after finding the user
     if (!object.metadata.active_status) {
-      return { data: null, error: "Account is not active" };
+      return { data: null, error: "A conta não está ativa" };
     }
 
     return { data: object, error: null };
   } catch (error) {
-    console.error("Error fetching user data:", error);
-    return { data: null, error: "Failed to fetch user data" };
+    console.error("Erro ao buscar dados do usuário:", error);
+    return { data: null, error: "Falha ao buscar dados do usuário" };
   }
 }
 
@@ -212,7 +212,7 @@ export async function getUserFromCookie() {
       image: result.object.metadata.image,
     };
   } catch (error) {
-    console.error("Error fetching user:", error);
+    console.error("Erro ao buscar usuário:", error);
     return null;
   }
 }
@@ -259,7 +259,7 @@ export async function updateUserProfile(userId: string, formData: FormData) {
       if (existingUser.object) {
         return {
           success: false,
-          error: "An account with this email already exists",
+          error: "Já existe uma conta com este e-mail",
         };
       }
 
@@ -275,12 +275,12 @@ export async function updateUserProfile(userId: string, formData: FormData) {
       await resend.emails.send({
         from: `${process.env.NEXT_PUBLIC_APP_NAME} Support <${process.env.SUPPORT_EMAIL}>`,
         to: email,
-        subject: "Verify your new email address",
+        subject: "Verifique seu novo endereço de e-mail",
         html: `
-          <h1>Verify Your New Email Address</h1>
-          <p>Please click the link below to verify your new email address:</p>
-          <a href="${verificationUrl}">Verify Email</a>
-          <p>This link will expire in 24 hours.</p>
+          <h1>Verifique seu novo endereço de e-mail</h1>
+          <p>Clique no link abaixo para verificar seu novo endereço de e-mail:</p>
+          <a href="${verificationUrl}">Verificar e-mail</a>
+          <p>Este link irá expirar em 24 horas.</p>
         `,
       });
     }
@@ -305,8 +305,8 @@ export async function updateUserProfile(userId: string, formData: FormData) {
 
     return { success: true, data: object };
   } catch (error) {
-    console.error("Error updating profile:", error);
-    return { success: false, error: "Failed to update profile" };
+    console.error("Erro ao atualizar o perfil:", error);
+    return { success: false, error: "Falha ao atualizar o perfil" };
   }
 }
 
@@ -327,7 +327,7 @@ export async function verifyEmail(code: string) {
 
     const verificationExpiry = new Date(object.metadata.verification_expiry);
     if (verificationExpiry < new Date()) {
-      throw new Error("Verification code has expired");
+      throw new Error("O código de verificação expirou");
     }
 
     await cosmic.objects.updateOne(object.id, {
@@ -340,8 +340,8 @@ export async function verifyEmail(code: string) {
 
     return { success: true };
   } catch (error) {
-    console.error("Error verifying email:", error);
-    throw new Error("Email verification failed");
+    console.error("Erro ao verificar e-mail:", error);
+    throw new Error("Falha na verificação de e-mail");
   }
 }
 
@@ -361,7 +361,7 @@ export async function forgotPassword(formData: FormData) {
     if (!existingUser.object) {
       return {
         success: false,
-        error: "No account found with this email address",
+        error: "Nenhuma conta encontrada com este endereço de e-mail",
       };
     }
 
@@ -383,12 +383,12 @@ export async function forgotPassword(formData: FormData) {
     await resend.emails.send({
       from: `${process.env.NEXT_PUBLIC_APP_NAME} Support <${process.env.SUPPORT_EMAIL}>`,
       to: email,
-      subject: "Reset your password",
+      subject: "Redefinir sua senha",
       html: `
-        <h1>Reset Your Password</h1>
-        <p>Click the link below to reset your password:</p>
-        <a href="${resetUrl}">Reset Password</a>
-        <p>This link will expire in 1 hour.</p>
+        <h1>Redefinir sua senha</h1>
+        <p>Clique no link abaixo para redefinir sua senha:</p>
+        <a href="${resetUrl}">Redefinir senha</a>
+        <p>Este link irá expirar em 1 hora.</p>
       `,
     });
 
@@ -397,7 +397,7 @@ export async function forgotPassword(formData: FormData) {
     console.error("Forgot password error:", error);
     return {
       success: false,
-      error: "Failed to process request. Please try again.",
+      error: "Falha ao processar a solicitação. Tente novamente.",
     };
   }
 }
@@ -411,7 +411,7 @@ export async function resetPassword(token: string, formData: FormData) {
       return {
         success: false,
         error:
-          "Password must be at least 8 characters long and contain both letters and numbers",
+          "A senha deve ter pelo menos 8 caracteres e conter letras e números",
       };
     }
 
@@ -427,7 +427,7 @@ export async function resetPassword(token: string, formData: FormData) {
     if (!existingUser.object) {
       return {
         success: false,
-        error: "Invalid or expired reset token",
+        error: "Token de redefinição inválido ou expirado",
       };
     }
 
@@ -437,7 +437,7 @@ export async function resetPassword(token: string, formData: FormData) {
     if (resetExpiry < new Date()) {
       return {
         success: false,
-        error: "Reset token has expired",
+        error: "O token de redefinição expirou",
       };
     }
 
@@ -455,10 +455,10 @@ export async function resetPassword(token: string, formData: FormData) {
 
     return { success: true };
   } catch (error) {
-    console.error("Reset password error:", error);
+    console.error("Erro de redefinição de senha:", error);
     return {
       success: false,
-      error: "Failed to reset password. Please try again.",
+      error: "Falha ao redefinir a senha. Tente novamente.",
     };
   }
 }

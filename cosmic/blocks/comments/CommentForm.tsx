@@ -77,13 +77,14 @@ export function CommentForm({
       {error && (
         <div className="mb-4 flex rounded-xl border border-red-500 p-8">
           <XCircle className="relative top-1 mr-4 h-4 w-4 text-red-500" />
-          There was an error with your request. Make sure all fields are valid.
+          Houve um erro com sua solicitação. Certifique-se de que todos os
+          campos sejam válidos.
         </div>
       )}
       {sumbitted ? (
         <div className="flex rounded-xl border border-green-500 p-8">
           <CheckCircle className="relative top-1 mr-4 h-4 w-4 text-green-500" />
-          Comment submitted for approval.
+          Comentário enviado para aprovação.
         </div>
       ) : (
         <>
@@ -124,7 +125,7 @@ export function CommentForm({
               {submitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
+                  Enviando...
                 </>
               ) : (
                 `Submit`

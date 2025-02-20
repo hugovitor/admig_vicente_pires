@@ -58,12 +58,12 @@ export function UserProfileForm({ user }: UserProfileFormProps) {
           image: result.data.metadata.avatar?.imgix_url,
         });
 
-        setMessage("Profile updated successfully!");
+        setMessage("Perfil atualizado com sucesso!");
       } else {
-        setMessage(result.error || "Error updating profile");
+        setMessage(result.error || "Erro ao atualizar o perfil");
       }
     } catch (error) {
-      setMessage("Error updating profile");
+      setMessage("Erro ao atualizar o perfil");
     }
   };
 
@@ -122,7 +122,7 @@ export function UserProfileForm({ user }: UserProfileFormProps) {
       </div>
 
       <div>
-        <Label htmlFor="firstName">First Name</Label>
+        <Label htmlFor="firstName">Primeiro nome</Label>
         <Input
           type="text"
           id="firstName"
@@ -133,7 +133,7 @@ export function UserProfileForm({ user }: UserProfileFormProps) {
       </div>
 
       <div>
-        <Label htmlFor="lastName">Last Name</Label>
+        <Label htmlFor="lastName">Sobrenome</Label>
         <Input
           type="text"
           id="lastName"
@@ -153,7 +153,7 @@ export function UserProfileForm({ user }: UserProfileFormProps) {
           required
         />
         {!user.metadata.email_verified && (
-          <p className="mt-1 text-sm text-amber-600">Email not verified</p>
+          <p className="mt-1 text-sm text-amber-600">E-mail não verificado</p>
         )}
       </div>
 

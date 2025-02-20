@@ -30,13 +30,13 @@ export default function SignUpClient({ onSubmit }: { onSubmit: any }) {
   if (isSignupComplete) {
     return (
       <div className="flex min-h-[50vh] flex-col items-center justify-center p-4 text-center">
-        <h2 className="mb-4 text-2xl font-semibold">Check your email</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Verifique seu e-mail</h2>
         <p className="mb-6 text-gray-600 dark:text-gray-300">
-          We've sent you a verification link. Please check your email to
-          complete the signup process.
+          Nós lhe enviamos um link de verificação. Por favor, verifique seu
+          e-mail para concluir o processo de inscrição.
         </p>
         <Link href="/login" className="text-orange-600">
-          Go to login
+          Ir para login
         </Link>
       </div>
     );

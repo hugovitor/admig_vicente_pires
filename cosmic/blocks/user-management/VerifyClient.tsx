@@ -29,7 +29,7 @@ export default function VerifyClient() {
         );
       } catch (error) {
         const errorMessage =
-          error instanceof Error ? error.message : "Verification failed";
+          error instanceof Error ? error.message : "Falha na verificação";
         router.push(`/login?error=${encodeURIComponent(errorMessage)}`);
       }
     };
@@ -42,7 +42,7 @@ export default function VerifyClient() {
       <div className="flex flex-col items-center gap-4 text-center">
         <Loader2 className="size-8 animate-spin text-orange-600" />
         <p className="text-gray-600 dark:text-gray-400">
-          Verifying your email...
+          Verificando seu e-mail...
         </p>
       </div>
     </div>

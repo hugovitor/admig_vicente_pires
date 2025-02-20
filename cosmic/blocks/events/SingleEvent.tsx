@@ -32,7 +32,7 @@ export async function SingleEvent({
                     href="/events"
                     className="mr-2 text-sm font-medium text-zinc-900 dark:text-white"
                   >
-                    Events
+                    Eventos
                   </Link>
                   <svg
                     width="16"

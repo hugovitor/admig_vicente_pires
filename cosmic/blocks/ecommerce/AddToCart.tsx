@@ -76,11 +76,11 @@ export function AddToCart({
         >
           {submitting ? (
             <>
-              <Loader2 className="size-4 animate-spin mr-2" /> Updating
+              <Loader2 className="size-4 animate-spin mr-2" /> Atualizando
             </>
           ) : (
             <>
-              <XIcon className="w-4 h-4 mr-2" /> Remove from cart
+              <XIcon className="w-4 h-4 mr-2" /> Remover do carrinho
             </>
           )}
         </Button>
@@ -88,7 +88,7 @@ export function AddToCart({
         <Button disabled={submitting} type="submit" onClick={handleSubmit}>
           {submitting ? (
             <>
-              <Loader2 className="size-4 animate-spin mr-2" /> Updating
+              <Loader2 className="size-4 animate-spin mr-2" /> Atualizando
             </>
           ) : (
             <>{inCart ? "Remove from cart" : "Add to cart"}</>

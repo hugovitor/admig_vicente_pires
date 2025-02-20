@@ -43,7 +43,7 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
         }
       }
     } catch (err: any) {
-      setError(err.message || "An error occurred");
+      setError(err.message || "Ocorreu um erro");
     } finally {
       setIsLoading(false);
     }
@@ -58,24 +58,24 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
       {type === "signup" && (
         <>
           <div>
-            <Label htmlFor="firstName">First Name</Label>
+            <Label htmlFor="firstName">Primeiro nome</Label>
             <Input
               type="text"
               id="firstName"
               name="firstName"
               required
-              placeholder="Enter your first name"
+              placeholder="Digite seu primeiro nome"
               autoFocus={type === "signup"}
             />
           </div>
           <div>
-            <Label htmlFor="lastName">Last Name</Label>
+            <Label htmlFor="lastName">Sobrenome</Label>
             <Input
               type="text"
               id="lastName"
               name="lastName"
               required
-              placeholder="Enter your last name"
+              placeholder="Digite seu sobrenome"
             />
           </div>
         </>
@@ -88,32 +88,31 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
           id="email"
           name="email"
           required
-          placeholder="Enter your email address"
+          placeholder="Digite seu endereço de e-mail"
           autoFocus={type === "login"}
         />
       </div>
 
       <div>
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">Senha</Label>
         <Input
           type="password"
           id="password"
           name="password"
           required
           minLength={8}
-          placeholder="Enter your password"
+          placeholder="Digite sua senha"
         />
         {type === "signup" ? (
           <p className="mt-1 text-sm text-gray-500">
-            Password must be at least 8 characters long and contain both letters
-            and numbers
+            A senha deve ter pelo menos 8 caracteres e conter letras e números
           </p>
         ) : (
           <Link
             href="/forgot-password"
             className="mt-1 inline-block text-sm text-orange-600"
           >
-            Forgot your password?
+            Esqueceu sua senha?
           </Link>
         )}
       </div>
@@ -134,15 +133,15 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
             <div className="flex items-center gap-2">
               Don&apos;t have an account?
               <Link href="/signup" className="text-orange-600">
-                Sign up
+                Inscrever-se
               </Link>
             </div>
           </>
         ) : (
           <>
-            Already have an account?
+            Já tem uma conta?
             <Link href="/login" className="text-orange-600">
-              Login
+              Conecte-se
             </Link>
           </>
         )}
