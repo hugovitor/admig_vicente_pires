@@ -38,12 +38,12 @@ export const getFormattedDate = (inputDate: string) => {
   const day = parseInt(dateParts[2]);
 
   // Create a new Date object using UTC timezone
-  //const date = new Date(Date.UTC(year, month, day));
-  const date = new Date(Date.UTC(day, month, year));
+  const date = new Date(Date.UTC(year, month, day));
+  //const date = new Date(Date.UTC(day, month, year));
 
   // Format the date in UTC
   const formattedDate = date.toLocaleDateString("pt-BR", {
-    timeZone: "America/Sao_Paulo",
+    timeZone: "UTC",
     year: "numeric",
     month: "long",
     day: "numeric",
