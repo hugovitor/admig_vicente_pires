@@ -37,8 +37,8 @@ export async function Page({
               </div>
             </div>
             <div className="w-full md:pb-20">
-              <div className="flex w-full gap-4 md:w-max">
-                {/* <Link
+              {/* <div className="flex w-full gap-4 md:w-max">
+                <Link
                   className={cn(
                     "w-full md:w-max",
                     buttonVariants({
@@ -59,8 +59,8 @@ export async function Page({
                   href="/contact"
                 >
                   Contact us
-                </Link> */}
-              </div>
+                </Link>
+              </div> */}
             </div>
           </div>
           <div className="my-auto w-full px-4 md:w-1/2">

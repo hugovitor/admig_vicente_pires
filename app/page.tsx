@@ -16,14 +16,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* <section className="md:container mt-12 pb-8 m-auto px-4">
+      <section className="md:container mt-12 pb-8 m-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold mb-4 text-zinc-800 dark:text-zinc-100">
-            Perguntas Frequentes
+            NOSSOS CULTOS
           </h2>
           <FAQs query={{ slug: "home", type: "pages" }} />
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }

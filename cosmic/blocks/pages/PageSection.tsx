@@ -58,7 +58,7 @@ export function Section({
           </div>
         </div>
       )}
-      {section.layout.key === "2-column-image-content" && (
+      {/* {section.layout.key === "2-column-image-content" && (
         <div className="grid gap-2 md:grid-cols-2">
           <div className="mr-4">
             <img
@@ -88,8 +88,8 @@ export function Section({
             </div>
           </div>
         </div>
-      )}
-      {section.layout.key === "2-column-content-image" && (
+      )} */}
+      {/* {section.layout.key === "2-column-content-image" && (
         <div className="grid gap-2 md:grid-cols-2">
           <div className="mr-4">
             <h2 className="mb-4 text-2xl font-semibold">{section.heading}</h2>
@@ -119,7 +119,7 @@ export function Section({
             />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
