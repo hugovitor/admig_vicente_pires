@@ -52,6 +52,7 @@ export function TeamCard({
               href={member.metadata.links.instagram}
               className="text-gray-500 hover:text-gray-600"
             >
+              {/* Icone  instagram  */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
