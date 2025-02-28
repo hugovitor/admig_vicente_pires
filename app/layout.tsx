@@ -9,6 +9,7 @@ import { CartProvider } from "@/cosmic/blocks/ecommerce/CartProvider";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Suspense } from "react";
 import { AuthProvider } from "@/cosmic/blocks/user-management/AuthContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const sans = Libre_Franklin({ subsets: ["latin"], variable: "--font-sans" });
 const display = Fjalla_One({
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body
         className={`${display.variable} ${sans.variable} font-sans md:p-0 bg-white dark:bg-black h-dvh w-full`}
       >
+        <SpeedInsights />
         <Suspense>
           <AuthProvider>
             <ThemeProvider
