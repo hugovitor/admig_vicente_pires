@@ -36,8 +36,8 @@ export async function Page({
                 {page.metadata.subheadline}
               </div>
             </div>
-            <div className="w-full md:pb-20">
-              {/* <div className="flex w-full gap-4 md:w-max">
+            {/* <div className="w-full md:pb-20">
+              <div className="flex w-full gap-4 md:w-max">
                 <Link
                   className={cn(
                     "w-full md:w-max",
@@ -60,8 +60,8 @@ export async function Page({
                 >
                   Contact us
                 </Link>
-              </div> */}
-            </div>
+              </div>
+            </div> */}
           </div>
           <div className="my-auto w-full px-4 md:w-1/2">
             <img
